@@ -1,11 +1,11 @@
-export const dynamic = "force-dynamic";
 import Link from "next/link";
-
 import prisma from "@/lib/db";
 import ClientInteractivity from "@/components/ClientInteractivity";
 import ThemeToggle from "@/components/ThemeToggle";
 import ProjectCarousel from "@/components/ProjectCarousel";
 import SkillsTicker from "@/components/SkillsTicker";
+
+export const dynamic = 'force-dynamic';
 
 async function getProfile() {
   try {

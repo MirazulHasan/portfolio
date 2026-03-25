@@ -1,9 +1,10 @@
-export const dynamic = "force-dynamic";
 import { Github, Linkedin, Mail, ExternalLink, Globe, MapPin, Award, BookOpen, UserCheck, Briefcase, GraduationCap, Code, Rocket, Facebook, Instagram, Twitter, Youtube } from "lucide-react";
-
 import Link from "next/link";
 import prisma from "@/lib/db";
 import DownloadPDFButton from "@/components/admin/DownloadPDFButton";
+
+export const dynamic = 'force-dynamic';
+
 
 // ── TYPES ───────────────────────────────────────────────────────────────────
 interface Profile {
