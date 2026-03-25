@@ -1,4 +1,6 @@
+export const dynamic = "force-dynamic";
 import Link from "next/link";
+
 import prisma from "@/lib/db";
 import ClientInteractivity from "@/components/ClientInteractivity";
 import ThemeToggle from "@/components/ThemeToggle";
