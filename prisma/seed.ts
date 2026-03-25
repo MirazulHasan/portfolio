@@ -1,31 +1,39 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from '../src/generated/client'
 import { hash } from 'bcryptjs'
 
 const prisma = new PrismaClient()
 
 async function main() {
     const password = await hash('admin123', 12)
+    
+    // Create or update the admin user
     const user = await prisma.user.upsert({
-        where: { email: 'admin@example.com' },
+        where: { email: 'mirazulhasanhimel19@gmail.com' },
         update: {},
         create: {
-            email: 'admin@example.com',
-            name: 'Admin User',
+            email: 'mirazulhasanhimel19@gmail.com',
+            name: 'Md. Mirazul Hasan',
             password,
             role: 'ADMIN',
         },
     })
 
-    const profile = await prisma.profile.create({
+    // Delete existing profile and create a fresh one
+    await (prisma as any).profile.deleteMany();
+    const profile = await (prisma as any).profile.create({
         data: {
-            name: 'Your Name',
-            title: 'Full Stack Developer',
-            bio: 'I build clean, beautiful, and scalable web applications.',
+            name: 'Md. Mirazul Hasan',
+            title: 'AI Engineer',
+            bio: 'A passionate developer building amazing things.',
+            aboutTitle: 'Passionate about building things that matter',
+            address: 'House No 224, Road No 02, Block F Basundhara R/A',
+            email: 'mirazulhasanhimel19@gmail.com'
         }
     })
 
     console.log({ user, profile })
 }
+
 
 main()
     .then(async () => {
